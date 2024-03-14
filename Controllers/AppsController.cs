@@ -88,7 +88,7 @@ namespace TravelFactory.Controllers
             return Ok(json);
         }
 
-        [HttpPost("{appName}/translations")]
+        [HttpPost("{appName}/deploy")]
         public IActionResult AddTranslation(string appName, [FromBody] JObject translationData)
         {
             var translationsDirectory = Path.Combine(Directory.GetCurrentDirectory(), "translations");
@@ -154,13 +154,6 @@ namespace TravelFactory.Controllers
 
                 return File(package.GetAsByteArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", $"{id}_Translations.xlsx");
             }
-        }
-
-        [HttpPost("{id}/deploy")]
-        public IActionResult DeployTranslations(int id)
-        {
-            // write all the translations for a specific application to a JSON file on the server.
-            return Ok("DeployTranslations for " + id.ToString());
         }
     }
 }
