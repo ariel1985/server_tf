@@ -1,7 +1,6 @@
 {
-    "basic_path": "apps/app1/<keyword>/<language>",
-    "last_update": "2018-01-01T00:00:00Z",
-    "translations": {
+    "Last_update": "2018-01-01T00:00:00Z",
+    "Translations": {
         "welcome": {
             "en": "Welcome",
             "fr": "Bonjour",

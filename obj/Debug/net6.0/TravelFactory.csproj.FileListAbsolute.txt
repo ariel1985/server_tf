@@ -106,4 +106,3 @@
 /home/ro/Dropbox/Scripts/interviews/travel_factory/server_tf/obj/Debug/net6.0/TravelFactory.pdb
 /home/ro/Dropbox/Scripts/interviews/travel_factory/server_tf/obj/Debug/net6.0/TravelFactory.genruntimeconfig.cache
 /home/ro/Dropbox/Scripts/interviews/travel_factory/server_tf/obj/Debug/net6.0/ref/TravelFactory.dll
-/home/ro/Dropbox/Scripts/interviews/travel_factory/server_tf/bin/Debug/net6.0/translations/fffff.json
