@@ -4,6 +4,7 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Text;
 using OfficeOpenXml;
+using Newtonsoft.Json.Linq;
 
 namespace TravelFactory.Controllers
 {
@@ -86,12 +87,20 @@ namespace TravelFactory.Controllers
             var json = System.IO.File.ReadAllText(filePath);
             return Ok(json);
         }
-        
-        [HttpPost("{id}/translations")]
-        public IActionResult AddTranslation(int id)
+
+        [HttpPost("{appName}/translations")]
+        public IActionResult AddTranslation(string appName, [FromBody] JObject translationData)
         {
-            // add a new translation key to a specific application. The request body should include the translation key and its value.
-            return Ok("AddTranslation for " + id.ToString());
+            var translationsDirectory = Path.Combine(Directory.GetCurrentDirectory(), "translations");
+            var filePath = Path.Combine(translationsDirectory, $"{appName}.json");
+
+            // Convert the JObject to a string
+            var jsonData = JsonConvert.SerializeObject(translationData, Formatting.Indented);
+
+            // Write the JSON data to the file, overwriting any existing content
+            System.IO.File.WriteAllText(filePath, jsonData);
+
+            return Ok($"Translation for {appName} has been saved.");
         }
 
         [HttpGet("{id}/download")]
