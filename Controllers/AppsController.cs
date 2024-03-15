@@ -48,7 +48,7 @@ namespace TravelFactory.Controllers
                 var translationData = new TranslationData
                 {
                     Name = appName,
-                    LastUpdate = DateTime.Now,
+                    Last_updated = DateTime.Now,
                     Translations = new Dictionary<string, Dictionary<string, string>>
                     {
                         {
