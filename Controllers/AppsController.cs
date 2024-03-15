@@ -47,6 +47,7 @@ namespace TravelFactory.Controllers
                 // Create a new TranslationData object with dummy data
                 var translationData = new TranslationData
                 {
+                    Name = appName,
                     LastUpdate = DateTime.Now,
                     Translations = new Dictionary<string, Dictionary<string, string>>
                     {
@@ -68,9 +69,13 @@ namespace TravelFactory.Controllers
                 file.Write(bytes, 0, bytes.Length);
             }
 
-            return Ok($"App '{appName}' created successfully.");
+            // Read the file content
+            var fileContent = System.IO.File.ReadAllText(filePath);
+
+            // Return the JSON response
+            return Ok(fileContent);
         }
-        
+
         [HttpGet("{appName}/translations")]
         public IActionResult GetTranslations(string appName)
         {
